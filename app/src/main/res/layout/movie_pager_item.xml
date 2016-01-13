@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+    android:layout_width = "600dp"
+    android:layout_height = "400dp"
+    android:id = "@+id/detailImage"
+    android:scaleType = "fitXY"
+    android:adjustViewBounds = "true"
+    android:src = "@drawable/small_movie_poster" />
+
+    <ImageView
+        android:id = "@+id/image2"
+        android:layout_height = "80dp"
+        android:layout_width = "80dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/detailTitle"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:textSize="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/detailCriticsScore"
+        android:layout_below = "@id/detailImage"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/detailAudienceScore"
+        android:layout_below = "@id/detailCriticsScore"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/detailSynopsis"
+        android:layout_below = "@id/detailAudienceScore"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/detailRating"
+        android:layout_below = "@+id/detailSynopsis"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/detailRuntime"
+        android:layout_below = "@id/detailRating"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/detailReleaseDate"
+        android:layout_below="@id/detailRuntime"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft = "true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabLayout"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp">-->
+
+    <ImageView
+        android:layout_width = "70dp"
+        android:layout_height = "90dp"
+        android:id = "@+id/posterImage"
+        android:layout_centerVertical = "true"
+        android:maxHeight = "70dp"
+        android:scaleType = "fitXY"
+        android:adjustViewBounds = "true"
+        android:src = "@drawable/small_movie_poster" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/posterImage"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/title"
+            android:layout_alignParentTop="true"
+            android:textStyle = "bold"
+            android:hint = "Title"
+            android:textSize = "12sp"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/scores"
+            android:layout_alignLeft="@id/title"
+            android:layout_below = "@id/title"
+            android:hint = "Critics Score"
+            android:textSize = "12sp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/cast"
+            android:layout_below="@id/scores"
+            android:maxLines = "1"
+            android:ellipsize="end"
+            android:hint = "Cast"
+            android:textSize = "12sp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/ratingRuntime"
+            android:layout_below = "@id/cast"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/synopsis"
+            android:layout_below= "@id/cast"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
