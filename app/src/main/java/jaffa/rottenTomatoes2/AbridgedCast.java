@@ -13,4 +13,12 @@ public class AbridgedCast implements Serializable{
         return name;
     }
 
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(name + " ");
+        return builder.toString();
+    }
+
+
 }

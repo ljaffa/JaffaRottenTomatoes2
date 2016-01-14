@@ -15,7 +15,6 @@ public class RottenTomatoesViewHolder extends RecyclerView.ViewHolder{
 
     private TextView title;
     private ImageView image;
-    private TextView scores;
     private TextView criticsScore;
     private TextView audienceScore;
     private ImageView criticsImage;
@@ -48,9 +47,11 @@ public class RottenTomatoesViewHolder extends RecyclerView.ViewHolder{
         audienceScore.setText(String.valueOf(movie.getRatings().getAudience_score()) + "%");
         audienceImage.setImageResource(R.drawable.audience_score);
         AbridgedCast[] list = movie.getAbridgedCast();
-         for (int i = 0; i < list.length; i++) {
-            castList.append(list[i].getName() + ", ");
-        }
+        String castString = "";
+         for (AbridgedCast c : list){
+           castString += c.getName() + ", ";
+         }
+        castList.setText(castString);
         ratingRuntime.setText(movie.getMpaa_rating() + ", " + String.valueOf(movie.getRuntime()));
 
         Picasso.with(context).load(movie.getPosters().getThumbnail())

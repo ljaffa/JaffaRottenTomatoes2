@@ -65,7 +65,7 @@ public class RottenTomatoesPagerAdapter extends PagerAdapter {
             criticsImage.setImageResource(R.drawable.critics_score);
         }
 
-        audienceScore.setText("Audience Score: \n" + movie.getRatings().getAudience_score() + "%");
+        audienceScore.setText("Audience \n Score: \n" + movie.getRatings().getAudience_score() + "%");
         audienceScore.setTextColor(Color.WHITE);
 
         audienceImage.setImageResource(R.drawable.audience_score);

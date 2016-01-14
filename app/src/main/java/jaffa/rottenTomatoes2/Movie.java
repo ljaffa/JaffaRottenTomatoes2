@@ -54,4 +54,13 @@ public class Movie implements Serializable {
     public AbridgedCast[] getAbridgedCast() {
         return abridgedCast;
     }
+
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < abridgedCast.length; i++) {
+            builder.append(abridgedCast[i].toString());
+        }
+        return builder.toString();
+    }
+
 }
