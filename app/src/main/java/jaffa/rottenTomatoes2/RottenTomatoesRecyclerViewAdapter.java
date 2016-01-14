@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 public class RottenTomatoesRecyclerViewAdapter extends RecyclerView.Adapter<RottenTomatoesViewHolder>{
 
     private Movie[] movies;
-    /*private final OnMovieSelectedListener listener;*/
 
     public RottenTomatoesRecyclerViewAdapter(Movie[] movies) {
         this.movies = movies;

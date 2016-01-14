@@ -37,33 +37,6 @@ public class RottenTomatoesPagerAdapter extends PagerAdapter {
         return view == object;
     }
 
-    /*@Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        LayoutInflater inflater = LayoutInflater.from(container.getContext());
-        View view = inflater.inflate(R.layout.activity_main, null);
-
-        TextView title = (TextView) view.findViewById(R.id.title);
-        ImageView image = (ImageView) view.findViewById(R.id.posterImage);
-        TextView scores = (TextView) view.findViewById(R.id.scores);
-        TextView castList = (TextView) view.findViewById(R.id.cast);
-        TextView ratingRuntime = (TextView) view.findViewById(R.id.ratingRuntime);
-
-        Movie movie = movies[position];
-        title.setText(movie.getTitle());
-        scores.setText(String.valueOf(movie.getRatings().getCritics_score()) + "%   "
-                + String.valueOf(movie.getRatings().getAudience_score()) + "%");
-        for (AbridgedCast c : movie.getAbridgedCast()) {
-            castList.append(c.getName() + ", ");
-        }
-        ratingRuntime.setText(movie.getMpaa_rating() + ", " + String.valueOf(movie.getRuntime()));
-
-        Picasso.with(context).load(movie.getPosters().getThumbnail())
-                .placeholder(R.drawable.small_movie_poster)
-                .into(image);
-
-        container.addView(view);
-        return view;
-    }*/
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
@@ -79,21 +52,31 @@ public class RottenTomatoesPagerAdapter extends PagerAdapter {
         TextView releaseDate = (TextView) view.findViewById(R.id.detailReleaseDate);
         ImageView image = (ImageView) view.findViewById(R.id.detailImage);
         ImageView image2 = (ImageView) view.findViewById(R.id.image2);
+        ImageView criticsImage = (ImageView) view.findViewById(R.id.detailCriticsImage);
+        ImageView audienceImage = (ImageView) view.findViewById(R.id.detailAudienceImage);
+
 
         Movie movie = movies[position];
         title.setText(movie.getTitle());
         title.setTextColor(Color.WHITE);
-        criticsScore.setText("Critics Score: " + movie.getRatings().getCritics_score() + "%");
-        audienceScore.setText("Audience" +
-                "Score: " + movie.getRatings().getAudience_score() + "%");
+        if (movie.getRatings().getCritics_score() > 0) {
+            criticsScore.setText("Rotten Tomatoes \n Critics Score: \n" + String.valueOf(movie.getRatings().getCritics_score()) + "%");
+            criticsScore.setTextColor(Color.WHITE);
+            criticsImage.setImageResource(R.drawable.critics_score);
+        }
+
+        audienceScore.setText("Audience Score: \n" + movie.getRatings().getAudience_score() + "%");
+        audienceScore.setTextColor(Color.WHITE);
+
+        audienceImage.setImageResource(R.drawable.audience_score);
         synopsis.setText(movie.getSynopsis());
         rating.setText("Rated: " + movie.getMpaa_rating());
         runtime.setText("Running Time: " + movie.getRuntime());
         releaseDate.setText("Theater Release Date: " + movie.getReleaseDate().getTheater());
 
-
         Picasso.with(context).load(movie.getPosters().getOriginal())
                 .into(image);
+
         Picasso.with(context).load(movie.getPosters().getProfile()).into(image2);
 
         container.addView(view);

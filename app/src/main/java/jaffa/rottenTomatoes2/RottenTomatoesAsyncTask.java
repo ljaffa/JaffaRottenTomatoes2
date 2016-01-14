@@ -30,7 +30,6 @@ public class RottenTomatoesAsyncTask extends AsyncTask<Long, Void, CurrentUpcomi
     private CurrentUpcoming movies;
 
     public RottenTomatoesAsyncTask(ViewPager viewPager, Context context){
-        /*this.recyclerView = (RecyclerView) viewPager.findViewById(R.id.listViewMovies);*/
         this.viewPager = viewPager;
         this.currentMovies = null;
         this.upcomingMovies = null;
@@ -80,34 +79,11 @@ public class RottenTomatoesAsyncTask extends AsyncTask<Long, Void, CurrentUpcomi
     * gets called on the UIThread. all text views can only be modified on the UIThread*/
 
     protected void onPostExecute(CurrentUpcoming movies) {
-            /*update recycler view with adapter*/
+
         super.onPostExecute(movies);
 
         Movie[] currentMovies = movies.getCurrentMovies().getMovies();
         Movie[] upcomingMovies = movies.getUpcomingMovies().getMovies();
-        /*RottenTomatoesRecyclerViewAdapter adapter = new RottenTomatoesRecyclerViewAdapter(currentMovies);
-        recyclerView.setAdapter(adapter);*/
-
-        /*URL url = null;
-        upcomingMovies = null;
-        try {
-            url = new URL("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/upcoming.json?apikey=cart6246nbex6fqchrj5t4b8&limit=20");
-            HttpURLConnection connection = null;
-            connection = (HttpURLConnection) url.openConnection();
-            InputStream in = null;
-            in = connection.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            GsonBuilder builder = new GsonBuilder();
-            builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
-            Gson gson = builder.create();
-            upcomingMovies = gson.fromJson(reader, UpcomingMovies.class);
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }*/
-
-        /*RottenTomatoesUpcomingAsyncTask task = new RottenTomatoesUpcomingAsyncTask(recyclerView, viewPager);
-        task.execute();*/
 
         RottenTomatoesMainPagerAdapter pagerAdapter = new RottenTomatoesMainPagerAdapter(currentMovies, upcomingMovies, context);
         viewPager.setAdapter(pagerAdapter);

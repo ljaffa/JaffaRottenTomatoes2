@@ -16,6 +16,10 @@ public class RottenTomatoesViewHolder extends RecyclerView.ViewHolder{
     private TextView title;
     private ImageView image;
     private TextView scores;
+    private TextView criticsScore;
+    private TextView audienceScore;
+    private ImageView criticsImage;
+    private ImageView audienceImage;
     private TextView castList;
     private TextView ratingRuntime;
     private Context context;
@@ -27,24 +31,31 @@ public class RottenTomatoesViewHolder extends RecyclerView.ViewHolder{
 
         title = (TextView) itemView.findViewById(R.id.title);
         image = (ImageView) itemView.findViewById(R.id.posterImage);
-        scores = (TextView) itemView.findViewById(R.id.scores);
-         castList = (TextView) itemView.findViewById(R.id.cast);
+        criticsScore = (TextView) itemView.findViewById(R.id.criticsScore);
+        audienceScore = (TextView) itemView.findViewById(R.id.audienceScore);
+        criticsImage = (ImageView) itemView.findViewById(R.id.criticsImage);
+        audienceImage = (ImageView) itemView.findViewById(R.id.audienceImage);
+        castList = (TextView) itemView.findViewById(R.id.cast);
         ratingRuntime = (TextView) itemView.findViewById(R.id.ratingRuntime);
        }
 
     public void bind(Movie movie){
         title.setText(movie.getTitle());
-         scores.setText(String.valueOf(movie.getRatings().getCritics_score()) + "%   "
-                + String.valueOf(movie.getRatings().getAudience_score()) + "%");
-         for (AbridgedCast c : movie.getAbridgedCast()) {
-            castList.append(c.getName() + ", ");
+        if (movie.getRatings().getCritics_score() > 0) {
+            criticsScore.setText(String.valueOf(movie.getRatings().getCritics_score()) + "%");
+            criticsImage.setImageResource(R.drawable.critics_score);
+        }
+        audienceScore.setText(String.valueOf(movie.getRatings().getAudience_score()) + "%");
+        audienceImage.setImageResource(R.drawable.audience_score);
+        AbridgedCast[] list = movie.getAbridgedCast();
+         for (int i = 0; i < list.length; i++) {
+            castList.append(list[i].getName() + ", ");
         }
         ratingRuntime.setText(movie.getMpaa_rating() + ", " + String.valueOf(movie.getRuntime()));
 
         Picasso.with(context).load(movie.getPosters().getThumbnail())
                 .placeholder(R.drawable.small_movie_poster)
                 .into(image);
-
 
     }
 

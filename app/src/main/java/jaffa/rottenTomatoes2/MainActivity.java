@@ -22,38 +22,39 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements OnMovieSelectedListener {
-        //, OnTabSelectedListener{
 
-   /* private RecyclerView recyclerView;*/
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    TabLayout.OnTabSelectedListener tabListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*recyclerView = (RecyclerView) findViewById(R.id.listViewMovies);*/
         viewPager = (ViewPager) findViewById(R.id.viewPagerMain);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
         tabLayout.addTab(tabLayout.newTab().setText("Now Playing"));
         tabLayout.addTab(tabLayout.newTab().setText("Upcoming"));
 
-        /*tabLayout.setOnTabSelectedListener(tabListener);*/
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(tabListener);
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
-        /*tabLayout.setupWithViewPager(viewPager);*/
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
 
-        /*LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);*/
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
 
-        /*RottenTomatoesMainPagerAdapter adapter = new RottenTomatoesMainPagerAdapter
-                ( this);
-        viewPager.setAdapter(adapter);*/
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         RottenTomatoesAsyncTask task = new RottenTomatoesAsyncTask(viewPager, this);
         task.execute();
@@ -81,10 +82,6 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    /*public void setOnTabSelectedListener(TabLayout.OnTabSelectedListener tabListener){
-        this.tabListener = tabListener;
-    }*/
-
     @Override
     public void onSelect(BoxOfficeMovie movies, int position) {
         Intent intent = new Intent(this, DetailActivity.class);
@@ -92,11 +89,4 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra("POSITION", position);
         this.startActivity(intent);
     }
-
-    /*@Override
-    public void onSelectTab(UpcomingMovies movies) {
-        Intent intent = new Intent(this, UpcomingActivity.class);
-        intent.putExtra("MOVIES", movies.getMovies());
-        this.startActivity(intent);
-    }*/
 }

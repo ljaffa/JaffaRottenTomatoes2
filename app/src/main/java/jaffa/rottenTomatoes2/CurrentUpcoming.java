@@ -5,8 +5,6 @@ package jaffa.rottenTomatoes2;
  */
 public class CurrentUpcoming {
 
-
-
     private UpcomingMovies upcomingMovies;
     private BoxOfficeMovie currentMovies;
 

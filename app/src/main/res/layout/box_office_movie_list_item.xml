@@ -3,85 +3,80 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft = "true"/>
+    <ImageView
+        android:layout_width = "90dp"
+        android:layout_height = "match_parent"
+        android:id = "@+id/posterImage"
+        android:maxHeight = "90dp"
+        android:maxWidth="100dp"
+        android:scaleType = "fitCenter"
+        android:adjustViewBounds = "true"
+        android:layout_marginTop="25dp"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tabLayout"
-        android:layout_centerVertical="true"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="10dp">-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/title"
+        android:layout_toRightOf = "@id/posterImage"
+        android:textStyle = "bold"
+        android:textSize = "16sp"
+        android:layout_marginTop="20dp" />
 
     <ImageView
-        android:layout_width = "70dp"
-        android:layout_height = "90dp"
-        android:id = "@+id/posterImage"
-        android:layout_centerVertical = "true"
-        android:maxHeight = "70dp"
-        android:scaleType = "fitXY"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/criticsImage"
+        android:maxHeight = "20dp"
+        android:maxWidth = "18dp"
         android:adjustViewBounds = "true"
-        android:src = "@drawable/small_movie_poster" />
+        android:layout_below = "@id/title"
+        android:layout_toRightOf = "@id/posterImage" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toRightOf="@id/posterImage"
-        android:layout_centerVertical="true"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id = "@+id/title"
-            android:layout_alignParentTop="true"
-            android:textStyle = "bold"
-            android:hint = "Title"
-            android:textSize = "12sp"
-            android:layout_marginTop="20dp"
-            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/criticsScore"
+        android:layout_below = "@id/title"
+        android:layout_toRightOf="@id/criticsImage"
+        android:textSize = "12sp"
+        android:layout_marginTop = "5dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id = "@+id/scores"
-            android:layout_alignLeft="@id/title"
-            android:layout_below = "@id/title"
-            android:hint = "Critics Score"
-            android:textSize = "12sp"
-            android:layout_marginTop="10dp"/>
+    <ImageView
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/audienceImage"
+        android:maxHeight = "20dp"
+        android:maxWidth = "18dp"
+        android:adjustViewBounds = "true"
+        android:layout_below = "@id/title"
+        android:layout_toRightOf="@id/criticsScore" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id = "@+id/cast"
-            android:layout_below="@id/scores"
-            android:maxLines = "1"
-            android:ellipsize="end"
-            android:hint = "Cast"
-            android:textSize = "12sp"
-            android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/audienceScore"
+        android:layout_below = "@id/title"
+        android:layout_toRightOf="@id/audienceImage"
+        android:textSize = "12sp"
+        android:layout_marginTop = "5dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id = "@+id/ratingRuntime"
-            android:layout_below = "@id/cast"
-            android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id = "@+id/synopsis"
-            android:layout_below= "@id/cast"
-            android:textSize="12sp"
-            android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/cast"
+        android:textSize = "12sp"
+        android:layout_marginTop="5dp"
+        android:layout_below = "@id/audienceScore"
+        android:layout_toRightOf = "@id/posterImage"/>
 
-    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/ratingRuntime"
+        android:layout_below = "@id/cast"
+        android:layout_toRightOf = "@id/posterImage"
+        android:layout_marginTop="5dp"/>
 
 </RelativeLayout>

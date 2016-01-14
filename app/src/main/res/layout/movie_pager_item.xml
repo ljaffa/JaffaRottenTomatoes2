@@ -1,52 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-    android:layout_width = "600dp"
-    android:layout_height = "400dp"
-    android:id = "@+id/detailImage"
-    android:scaleType = "fitXY"
-    android:adjustViewBounds = "true"
-    android:src = "@drawable/small_movie_poster" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.1">
 
-    <ImageView
-        android:id = "@+id/image2"
-        android:layout_height = "80dp"
-        android:layout_width = "80dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp" />
+        <ImageView
+        android:layout_width = "600dp"
+        android:layout_height = "400dp"
+        android:id = "@+id/detailImage"
+        android:scaleType = "fitXY"
+        android:adjustViewBounds = "true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/detailTitle"
+            android:layout_alignParentTop="true"
+            android:textSize="50dp" />
+
+        <ImageView
+            android:id = "@+id/image2"
+            android:layout_height = "100dp"
+            android:layout_width = "150dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft = "true"
+            android:layout_below = "@id/detailTitle"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft = "10dp"
+            android:adjustViewBounds="true"/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id = "@+id/detailTitle"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:textSize="50dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/detailCriticsScore"
+            android:layout_marginLeft="270dp"
+            android:layout_alignParentBottom = "true"
+            android:layout_below = "@id/detailTitle"
+            android:layout_marginTop="120dp"
+            android:textSize="18sp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id = "@+id/detailCriticsScore"
-        android:layout_below = "@id/detailImage"
-        android:layout_marginTop="10dp"/>
+       <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id= "@+id/detailCriticsImage"
+            android:maxWidth="37dp"
+            android:maxHeight="40dp"
+            android:adjustViewBounds="true"
+            android:layout_marginLeft="230dp"
+            android:layout_alignParentTop = "true"
+            android:layout_marginTop="240dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id = "@+id/detailAudienceScore"
-        android:layout_below = "@id/detailCriticsScore"
-        android:layout_marginTop="10dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/detailAudienceImage"
+            android:maxWidth="25dp"
+            android:maxHeight="30dp"
+            android:adjustViewBounds="true"
+            android:layout_marginLeft="420dp"
+           android:layout_alignParentTop="true"
+            android:layout_marginTop="240dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/detailAudienceScore"
+            android:layout_marginLeft="450dp"
+            android:layout_alignParentBottom = "true"
+            android:layout_below = "@id/detailTitle"
+            android:layout_marginTop="120dp"
+            android:textSize="18sp"/>
+
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id = "@+id/detailSynopsis"
-        android:layout_below = "@id/detailAudienceScore"
-        android:layout_marginTop="10dp"/>
+        android:layout_below = "@id/detailImage"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,4 +108,4 @@
         android:layout_below="@id/detailRuntime"
         android:layout_marginTop="10dp"/>
 
-</RelativeLayout>
+</LinearLayout>

@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class Movie implements Serializable {
 
     private String title;
-    private int year;
     private String mpaa_rating;
     private String runtime;
     private String synopsis;
@@ -26,10 +25,6 @@ public class Movie implements Serializable {
 
     public String getTitle() {
         return title;
-    }
-
-    public int getYear() {
-        return year;
     }
 
     public String getMpaa_rating() {
