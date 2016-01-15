@@ -41,6 +41,9 @@ public class RottenTomatoesAsyncTask extends AsyncTask<Long, Void, CurrentUpcomi
         URL url = null;
         currentMovies = null;
         upcomingMovies = null;
+        GsonBuilder builder = new GsonBuilder();
+        builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+        Gson gson = builder.create();
         try {
             url = new URL("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=cart6246nbex6fqchrj5t4b8&limit=20");
             HttpURLConnection connection = null;
@@ -48,9 +51,6 @@ public class RottenTomatoesAsyncTask extends AsyncTask<Long, Void, CurrentUpcomi
             InputStream in = null;
             in = connection.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            GsonBuilder builder = new GsonBuilder();
-            builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
-            Gson gson = builder.create();
             currentMovies = gson.fromJson(reader, BoxOfficeMovie.class);
         }
         catch(IOException e){
@@ -63,9 +63,7 @@ public class RottenTomatoesAsyncTask extends AsyncTask<Long, Void, CurrentUpcomi
             InputStream in = null;
             in = connection.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            GsonBuilder builder = new GsonBuilder();
-            builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
-            Gson gson = builder.create();
+
             upcomingMovies = gson.fromJson(reader, UpcomingMovies.class);
         }
         catch(IOException e){
